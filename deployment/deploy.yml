@@ -19,7 +19,7 @@
 
     - name: Move app to nginx web root
       synchronize:
-        src: "{{ destination }}"
+        src: "{{ destination }}/"
         dest: /usr/share/nginx/html
       delegate_to: "{{ inventory_hostname }}"
       become: true
