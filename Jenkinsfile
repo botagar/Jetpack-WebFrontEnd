@@ -11,3 +11,11 @@ node {
     sh "npm run build"
    }
 }
+timeout(time:1, unit:'DAYS') {
+    input message:'Deploy?'
+}
+node {
+  stage('Deploy') {
+    sh "ansible-playbook -u '${DEPLOY_USER}' -i '${DEPLOY_HOST},' deployment/deploy.yml"
+  }
+}

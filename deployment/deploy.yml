@@ -1,0 +1,25 @@
+---
+- name: Deploy app to dev host
+  hosts: all
+  become_user: root
+
+  vars:
+      - destination: "/home/{{ ansible_user_id }}/frontend"
+
+  tasks:
+    - name: Ensure directories exist
+      file:
+        path: "{{ destination }}"
+        state: directory
+
+    - name: Copy app
+      synchronize:
+        src: ../dist/
+        dest: "{{ destination }}"
+
+    - name: Move app to nginx web root
+      synchronize:
+        src: "{{ destination }}"
+        dest: /usr/share/nginx/html
+      delegate_to: "{{ inventory_hostname }}"
+      become: true
