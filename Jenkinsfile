@@ -1,0 +1,13 @@
+node {
+  stage('Preparation') { // for display purposes
+    // Get some code from a GitHub repository
+    git 'https://github.com/botagar/Jetpack-WebFrontEnd'
+    sh "npm install"
+  }
+  stage('Test') {
+    sh "npm run test"
+  }
+  stage('Package') {
+    sh "npm run build"
+   }
+}
