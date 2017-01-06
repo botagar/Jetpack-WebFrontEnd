@@ -1,5 +1,5 @@
-<h1>Found in {{ $ctrl.name }}.html</h1>
 
-<section>
-  Home!
-</section>
+<div ng-repeat="item in $ctrl.items">
+    <item price="item.price" item-name="item.itemName"></item>
+</div>
+
