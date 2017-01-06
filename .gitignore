@@ -5,3 +5,4 @@ dist/
 **/*-compiled.js.map
 npm-debug.log
 .DS_Store
+.chrome/

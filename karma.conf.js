@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = function (config) {
   config.set({
     // base path used to resolve all patterns
@@ -15,6 +17,8 @@ module.exports = function (config) {
 
     plugins: [
       require("karma-chai"),
+      require("karma-chrome-launcher"),
+      require("karma-firefox-launcher"),
       require("karma-phantomjs-launcher"),
       require("karma-mocha"),
       require("karma-mocha-reporter"),
@@ -61,6 +65,13 @@ module.exports = function (config) {
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: ['PhantomJS'],
+
+    customLaunchers: {
+      Chrome_with_debugging: {
+        base: 'Chrome',
+        chromeDataDir: path.resolve(__dirname, '.chrome')
+      }
+    },
 
     // if true, Karma runs tests once and exits
     singleRun: true
