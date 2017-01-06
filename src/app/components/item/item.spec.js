@@ -25,10 +25,6 @@ describe('Item', () => {
         $scope: $rootScope.$new()
       });
     });
-
-    it('has a name property', () => { // erase if removing this.name from the controller
-      expect(controller).to.have.property('name');
-    });
   });
 
   describe('View', () => {
@@ -37,13 +33,18 @@ describe('Item', () => {
 
     beforeEach(() => {
       scope = $rootScope.$new();
-      template = $compile('<item></item>')(scope);
+      const item = { name: "a", price: 1000 };
+      scope.item = item;
+      template = $compile('<item item-name="item.name" price="item.price"></item>')(scope);
       scope.$apply();
     });
 
-    it('has name in template', () => {
-      expect(template.find('h1').html()).to.eq('Found in item.html');
-    });
+    it('has price and name in template', () => {
+      var elements = template.find('p');
 
+      expect(elements.eq(0).text()).to.eq('a');
+      expect(elements.eq(1).text()).to.eq('$1000');
+
+    });
   });
 });

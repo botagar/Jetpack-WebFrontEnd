@@ -31,8 +31,8 @@ describe('Home', () => {
       });
     });
 
-    it('has a name property', () => { // erase if removing this.name from the controller
-      expect(controller).to.have.property('name');
+    it('has a items property', () => { // erase if removing this.name from the controller
+      expect(controller).to.have.property('items');
     });
   });
 
@@ -47,7 +47,7 @@ describe('Home', () => {
     });
 
     it('has name in template', () => {
-      expect(template.find('h1').html()).to.eq('Found in home.html');
+      expect(template.find('item')).to.have.lengthOf(2);
     });
 
   });
