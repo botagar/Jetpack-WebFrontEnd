@@ -1,9 +1,11 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import homeComponent from './home.component';
+import itemComponent from '../item/item';
 
 let homeModule = angular.module('home', [
-  uiRouter
+  uiRouter,
+  itemComponent
 ])
 
 .config(($stateProvider, $urlRouterProvider) => {

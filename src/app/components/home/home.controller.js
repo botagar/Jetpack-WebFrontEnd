@@ -1,13 +1,17 @@
-import Item from '../../common/item';
 
 class HomeController {
 
-  constructor () {
-    this.items = [
-      new Item('jetpack', 10000),
-      new Item('jetpack2', 20000)
-    ];
+  constructor (itemService, $scope) {
+    'ngInject';
+
+    this.items = [];
+
+    itemService.getAll().then(items => {
+      this.items = items;
+      $scope.$apply();
+    });
   }
+
 }
 
 export default HomeController;
