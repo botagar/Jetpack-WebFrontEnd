@@ -10,7 +10,7 @@ module.exports = function (config) {
     frameworks: ['mocha', 'chai'],
 
     // list of files/patterns to load in the browser
-    files: [{ pattern: 'spec.bundle.js', watched: false }],
+    files: [{ pattern: 'spec.bundle.js', watched: false }, './node_modules/promise-polyfill/promise.js'],
 
     // files to exclude
     exclude: [],
