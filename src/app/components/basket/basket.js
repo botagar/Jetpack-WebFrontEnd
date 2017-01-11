@@ -2,13 +2,12 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import basketComponent from './basket.component';
 import basketService from './basket.service';
-import basketController from './basket.controller';
 
 let basketModuleName = angular.module('basket', [
   uiRouter
 ])
 
-  .config(($stateProvider, $urlRouterProvider) => {
+  .config(($stateProvider) => {
     'ngInject';
 
     $stateProvider
@@ -19,7 +18,6 @@ let basketModuleName = angular.module('basket', [
   })
 
   .component('basket', basketComponent)
-  .controller('BasketController', basketController)
   .factory('basketService', basketService.factory)
   // .service('basketService', basketService)  // eslint-disable-line angular/no-service-method
   .name;
