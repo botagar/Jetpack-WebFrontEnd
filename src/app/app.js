@@ -1,7 +1,7 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import appComponent from './app.component';
-import components from './components/components';
+import components from './features/components';
 import 'script!tether';
 import 'script!jquery';
 import 'script!bootstrap';
