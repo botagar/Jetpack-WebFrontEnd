@@ -1,5 +1,9 @@
-<h1>Found in {{ $ctrl.name }}.html</h1>
+<h1>Found in {{ $ctrl.name }}</h1>
 
-<section>
-  Basket
+<section ng-controller="BasketController as basket">
+  Basket 1
+  <ul>
+    <li ng-repeat="item in basket.items">{{item.name}} ${{item.amount}}</li>
+  </ul>
+
 </section>
